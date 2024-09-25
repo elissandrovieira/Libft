@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:08:55 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/25 16:35:11 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/09/25 18:51:28 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int     main(void)
 
         memmove(buffer + 2, buffer, 4);
         printf("memmove: %s\n", buffer);
-        strcpy(buffer + 2, "aabbcc");
-        ft_memmove(buffer, buffer, 4);
+        strcpy(buffer, "aabbcc");
+        ft_memmove(buffer + 2, buffer, 4);
         printf("ft_memmove: %s\n", buffer);
         return (0);
 }
