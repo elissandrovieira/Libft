@@ -6,11 +6,13 @@
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 12:28:08 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/24 16:38:55 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/09/24 23:32:09 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	bzero(void *s, unsigned long int n)
+#include "libft.h"
+
+void	bzero(void *s, size_t n)
 {
 	char	*s1;
 	char	*end;
