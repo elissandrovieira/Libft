@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 12:28:08 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/25 16:43:01 by eteofilo         ###   ########.fr       */
+/*   Created: 2024/09/24 23:08:55 by eteofilo          #+#    #+#             */
+/*   Updated: 2024/09/25 16:35:11 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+#include <string.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+int     main(void)
 {
-	char	*s;
-	char	*d;
-	int	i;
+        char    buffer[] = "aabbcc";
 
-	s = (char *)src;
-	d = (char *)dest;
-	i = 0;
-	if (d <= s || d >= (s + n))
-	{
-		while (n--)
-			*d++ = *s++;
-	}
-	else
-	{
-		
-		while (n--)
-		{
-			*(d + n) = *(s + n);
-		}
-	}
-	return (dest);
+        memmove(buffer + 2, buffer, 4);
+        printf("memmove: %s\n", buffer);
+        strcpy(buffer + 2, "aabbcc");
+        ft_memmove(buffer, buffer, 4);
+        printf("ft_memmove: %s\n", buffer);
+        return (0);
 }
+
