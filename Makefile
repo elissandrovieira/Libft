@@ -10,7 +10,13 @@ ft_bzero.c \
 ft_memcpy.c \
 ft_memmove.c \
 ft_strlcpy.c \
-ft_strlcat.c
+ft_strlcat.c \
+ft_toupper.c \
+ft_tolower.c \
+ft_strchr.c \
+ft_strrchr.c \
+ft_strncmp.c \
+ft_memchr.c \
 OBJS=$(SOURCE:.c=.o)
 CC=cc
 CC_FLAGS=-Wall -Wextra -Werror
@@ -29,4 +35,5 @@ clean: $(OBJS)
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean all
+re: fclean
+	$(NAME)

@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:15:09 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/25 23:50:52 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/09/26 16:18:49 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,10 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isprint(int c);
 int		ft_isascii(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strchr(const char *s, int c);
 size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);

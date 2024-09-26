@@ -6,13 +6,13 @@
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 19:04:29 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/25 19:07:53 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/09/26 14:49:00 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 

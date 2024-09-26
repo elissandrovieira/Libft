@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/25 23:32:08 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/26 14:48:11 by eteofilo         ###   ########.fr       */
+/*   Created: 2024/09/26 14:38:06 by eteofilo          #+#    #+#             */
+/*   Updated: 2024/09/26 14:49:47 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+int	ft_toupper(int c)
 {
-	size_t	i;
-	size_t	d_len;
-	size_t	s_len;
-	size_t	count;
-
-	d_len = ft_strlen(dst);
-	s_len = ft_strlen(src);
-	count = d_len;
-	if (size <= d_len)
-		return (size + s_len);
-	i = 0;
-	while (src[i] != 0 && count + 1 < size)
-		dst[count++] = src[i++];
-	dst[count] = '\0';
-	return (s_len + d_len);
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
 }
