@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <bsd/string.h>
 #include "libft.h"
 
 int     main(void)
@@ -30,6 +31,9 @@ int     main(void)
 	printf("%s", buff);
 	printf("size = %ld\n", ft_strlcat(buff1, ",world", 5));
         printf("%s", buff1);
+	printf("\n-------------------------------------------\n");
+        printf("mine = %s\n", ft_strnstr("paralelepipedo", "lele", 5));
+        printf("std = %s\n", strnstr("paralelepipedo", "lele", 5));
 
 
         return (0);
