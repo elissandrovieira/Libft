@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:08:55 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/02 00:48:43 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/02 14:34:27 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int     main(void)
 	printf("\n-------------------------------------------\n");
         printf("mine = %s\n", ft_strnstr("paralelepipedo", "lele", 5));
         printf("std = %s\n", strnstr("paralelepipedo", "lele", 5));
+	printf("\n-------------------------------------------\n");
 	printf("\n-------------------------------------------\n");
 	printf("%s", ft_strtrim("May the force be with you.", "May you."));
 

@@ -6,9 +6,11 @@
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:51:00 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/26 16:10:52 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/02 13:27:05 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {

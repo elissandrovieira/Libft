@@ -6,13 +6,13 @@
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 14:51:00 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/02 00:50:33 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/02 16:12:05 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s != c && s != 0)
+	while (*s != c && *s != 0)
 		s++;
 	if (*s == c)
 		return ((char *)s);

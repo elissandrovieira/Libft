@@ -23,6 +23,8 @@ ft_atoi.c \
 ft_calloc.c \
 ft_strdup.c \
 ft_substr.c \
+ft_strjoin.c \
+ft_strtrim.c
 OBJS=$(SOURCE:.c=.o)
 CC=cc
 CC_FLAGS=-Wall -Wextra -Werror
@@ -35,11 +37,10 @@ $(NAME): $(OBJS)
 %.o: %.c
 	$(CC) $(CC_FLAGS) -c $< -o $@
 
-clean: $(OBJS)
+clean:
 	rm -rf $(OBJS)
 
 fclean: clean
 	rm -rf $(NAME)
 
-re: fclean
-	$(NAME)
+re: fclean $(NAME)
