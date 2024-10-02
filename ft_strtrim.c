@@ -1,33 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/17 19:08:51 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/02 00:46:58 by eteofilo         ###   ########.fr       */
+/*   Created: 2024/10/01 23:25:12 by eteofilo          #+#    #+#             */
+/*   Updated: 2024/10/02 00:44:28 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(char *src)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	char	*dest;
+	size_t	len;
 
-	i = 0;
-	if (src == 0)
-		return (0);
-	dest = (char *)malloc(sizeof(char) * ft_strlen(src));
-	if (dest == 0)
-		return (0);
-	while (src[i] != 0)
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+	while (s1++ && ft_strchr(set, *s1) != 0)
+	len = ft_strlen(s1);
+	while (s1[len] && ft_strchr(set, s1[len]) != 0)
+			len--;
+	return (ft_substr(s1, 0, len));
 }
