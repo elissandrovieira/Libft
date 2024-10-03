@@ -6,7 +6,7 @@
 /*   By: eteofilo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 16:37:27 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/27 17:10:55 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/03 18:06:30 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size = ft_strlen(s + start);
 	if (size > len)
 		size = len;
-	str = (char *)malloc(len * sizeof(char));
+	str = (char *)malloc((len + 1) * sizeof(char));
 	if (!str)
 		return (0);
 	i = 0;
@@ -31,5 +31,6 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		start++;
 		i++;
 	}
+	str[i] = '\0';
 	return (str);
 }

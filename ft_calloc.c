@@ -6,7 +6,7 @@
 /*   By: eteofilo <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 15:00:59 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/27 15:55:23 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:37:25 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (nmemb == 0 || size == 0)
 		return (0);
 	n = nmemb * size;
-	if (n > 2147483647)
+	if (n / nmemb != size)
 		return (0);
 	ptr = (void *)malloc(n);
 	if (!ptr)

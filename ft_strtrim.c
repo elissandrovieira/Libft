@@ -6,17 +6,18 @@
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/01 23:25:12 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/02 16:05:24 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/03 12:35:40 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-char *ft_strtrim(char const *s1, char const *set)
+
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	len;
 
-	while (s1++ && ft_strchr(set, *s1) != 0)
+	while (s1 && ft_strchr(set, *s1) != 0)
+		s1++;
 	len = ft_strlen(s1);
 	while (len && ft_strchr(set, s1[len]) != 0)
 		len--;

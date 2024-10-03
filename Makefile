@@ -24,7 +24,9 @@ ft_calloc.c \
 ft_strdup.c \
 ft_substr.c \
 ft_strjoin.c \
-ft_strtrim.c
+ft_strtrim.c \
+ft_split.c \
+ft_itoa.c
 OBJS=$(SOURCE:.c=.o)
 CC=cc
 CC_FLAGS=-Wall -Wextra -Werror
@@ -44,3 +46,12 @@ fclean: clean
 	rm -rf $(NAME)
 
 re: fclean $(NAME)
+
+run: re
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out
+
+norm:
+	clear
+	norminette -R CheckForbiddenSourceHeader $(SOURCE)
