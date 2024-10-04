@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:36:58 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/03 18:06:11 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/04 17:02:34 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,21 @@ char	**ft_split(char const *s, char c)
 	int		len;
 	int		i;
 
-	len = 0;
+	len = 1;
 	i = 0;
 	start = (char *)s;
 	strs = (char **)malloc(sizeof(char *) * (count_str(s, c) + 1));
 	if (!strs)
 		return (0);
-	while (*s++)
+	while (*s)
 	{
 		if (*s == c || *(s + 1) == 0)
 		{
-			if (*(s + 1) == 0)
-				len++;
-			strs[i] = ft_substr(start, 0, len);
-			start = (char *)s;
-			i++;
+			strs[i++] = ft_substr(start, 0, len);
+			start = (char *)(s + 1);
+			len = 0;
 		}
+		s++;
 		len++;
 	}
 	strs[i] = 0;
