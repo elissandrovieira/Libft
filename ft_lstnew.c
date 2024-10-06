@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 12:50:19 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/05 14:00:25 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/06 13:56:11 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list	node;
+	t_list	*node;
 
 	node = malloc(sizeof(t_list));
 	if (!node)

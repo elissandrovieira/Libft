@@ -6,9 +6,11 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/05 13:04:48 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/05 13:20:32 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/06 13:57:32 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {

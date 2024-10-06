@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:08:55 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/04 17:02:48 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/06 14:58:54 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,16 @@ void	test(unsigned int i, char *c)
 
 int     main(void)
 {
-        //char    buffer[] = "ABCDEFGH";
-	//char	buff[10] = "Hello ";
-	//char	buff1[10] = "Hello ";
+        /*
+	char    buffer[] = "ABCDEFGH";
+	char	buff[10] = "Hello ";
+	char	buff1[10] = "Hello ";
 	char	str[] = "may the force be with you.";
 	char	**split = ft_split(str, 'e');
-//	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_APPEND, 0644); 
+	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_APPEND, 0644); 
 	int	i = 0;
 
-        /*ft_memmove(buffer + 2, buffer, 5);
+        ft_memmove(buffer + 2, buffer, 5);
         printf("memmove: %s\n", buffer);
         strcpy(buffer, "ABCDEFGH");
         ft_memcpy(buffer + 2, buffer, 5);
@@ -55,7 +56,6 @@ int     main(void)
 	printf("\n-------------------------------------------\n");
 	printf("%s\n", ft_strtrim(str, "May you."));
 	printf("\n-------------------------------------------\n");
-	*/
 	printf("Original = %s\n", str);
 	i = 0;
 	while (split[i] != 0)
@@ -64,7 +64,6 @@ int     main(void)
 		i++;
 	}
 	printf("S%i = %s\n", i, split[i]);
-	/*
 	printf("%s", split[0]);
 	printf("%s\n", ft_itoa(-+2147483647));
 	printf("Original = %s\n", str);
@@ -80,5 +79,31 @@ int     main(void)
 	close(fd);
 	write(1, "\n", 1);
 	*/
+
+	char	*str = "May the force be with you!";
+	char	*strnew = "I am your father.";
+	t_list	*strl = ft_lstnew(str);
+	printf("---------- ft_lstnew.c ---------\n");
+	printf("strl->content = %s\n", (char *)strl->content);
+	t_list	*strlnew = ft_lstnew(strnew);
+	ft_lstadd_front(&strl, strlnew);
+	printf("\n ---------- ft_lstadd_front.c -------------\n");
+	printf("strl->content = %s\n", (char *)strl->content);
+	printf("str->next->content = %s\n", (char *)strl->next->content);
+	printf("\n----------- ft_lstsize.c -----------------\n");
+	printf("strl size = %d\n", ft_lstsize(strl));
+	printf("\n----------- ft_lstsize.c -----------------\n");
+	t_list	*last = ft_lstlast(strl);
+	printf("last node->content = %s\n", (char *)last->content);
+	printf("\n----------- ft_lstadd_back.c -----------------\n");
+	char	*strback = "Help me, obi-wan kenobi.";
+	t_list	*strlback = ft_lstnew(strback);
+	ft_lstadd_back(&strl, strlback);
+	t_list	*lst = strl;
+	while (lst != 0)
+	{
+		printf("%s\n", (char *)lst->content);
+		lst = lst->next;
+	}
 	return (0);
 }
