@@ -69,4 +69,4 @@ run:
 
 norm:
 	clear
-	norminette -R CheckForbiddenSourceHeader $(SRC)
+	norminette -R CheckForbiddenSourceHeader $(SRC) $(SRC_BONUS)
