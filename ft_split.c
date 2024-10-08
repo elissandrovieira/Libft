@@ -21,7 +21,7 @@ static int	count_str(char const *s, char c)
 	count = 0;
 	while (s[i] != 0)
 	{
-		if (s[i] == c || i == 0)
+		if (s[i] != c && (i == 0 || s[i - 1] == c))
 			count++;
 		i++;
 	}
@@ -43,7 +43,12 @@ char	**ft_split(char const *s, char c)
 		return (0);
 	while (*s)
 	{
-		if (*s == c || *(s + 1) == 0)
+		if (*s == c && *(s + 1) != c)
+		{
+			start = (char *)(s + 1);
+			len = 0;
+		}
+		if (*s != c && (*(s + 1) == c || *(s + 1) == 0))
 		{
 			strs[i++] = ft_substr(start, 0, len);
 			start = (char *)(s + 1);
