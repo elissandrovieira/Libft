@@ -39,7 +39,9 @@ SRC_BONUS=ft_lstnew.c \
 	ft_lstlast.c \
 	ft_lstadd_back.c \
 	ft_lstdelone.c \
-	ft_lstclear.c
+	ft_lstclear.c \
+	ft_lstiter.c \
+	ft_lstmap.c
 OBJS=$(SRC:.c=.o)
 OBJS_BONUS=$(SRC_BONUS:.c=.o)
 CC=cc
@@ -56,15 +58,12 @@ $(NAME): $(OBJS)
 clean:
 	rm -rf $(OBJS) $(OBJS_BONUS)
 
-bclean:
-	rm -rf $(OBJS_BONUS)
-
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean $(NAME)
 
-bonus: bclean $(OBJS_BONUS) $(OBJS)
+bonus: $(OBJS_BONUS) $(OBJS)
 	ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
 
 run:

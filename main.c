@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:08:55 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/09 13:46:27 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/09 16:29:53 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,28 @@ void	test(unsigned int i, char *c)
 
 void del(void * content)
 {
+	char	*str = (char *)content;
+	if (*str == 32)
 	free(content);
+}
+
+void print_lcontent(void *c)
+{
+	printf("%s\n", (char *)c);
+}
+
+void *lst_toupper(void *c)
+{
+	char *cst = (char *)c;
+	char *str = (char *)malloc(sizeof(char) * strlen((char *)c));
+	int i = 0;
+
+	while (cst[i] != 0)
+	{
+		str[i] = cst[i] - 32;
+		i++;
+	}
+	return (str);
 }
 
 int     main(void)
@@ -84,8 +105,7 @@ int     main(void)
 	ft_putnbr_fd(5524482, fd);
 	close(fd);
 	write(1, "\n", 1);
-	
-
+*/
 	char	*str = malloc(sizeof(char) * 27);
 	char s[] = "May the force be with you!";
 	int i = 0;
@@ -94,7 +114,6 @@ int     main(void)
 		str[i] = s[i];
 		i++;
 	}
-
 	char	*strnew = "I am your father.";
 	t_list	*strl = ft_lstnew(str);
 	printf("---------- ft_lstnew.c ---------\n");
@@ -129,35 +148,18 @@ int     main(void)
 		printf("%s\n", (char *)lst1->content);
 		lst1 = lst1->next;
 	}
-	printf("\n----------------- ft_lstdelone.c -----------------\n");
-	printf("BEFORE\n");
+
+	printf("\n----------------- ft_lstiter.c -----------------\n");
 	t_list	*newl = ft_lstnew(ft_strdup("May"));
 	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("the")));
 	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("force")));
 	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("be")));
 	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("with")));
 	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("you.")));
-	lst1 = newl;
-	while (lst1 != 0)
-	{
-		printf("%s\n", (char *)lst1->content);
-		lst1 = lst1->next;
-	}
-	lst1 = newl;
-	char *a = "be";
-	while (ft_strncmp(lst1->content, a, 2) == 0)
-	{
-		lst1 = lst1->next;
-	}
-	ft_lstclear(lst1, del);
-	lst1 = newl;
-	while (lst1 != 0)
-	{
-		printf("%s\n", (char *)lst1->content);
-		lst1 = lst1->next;
-	}
-*/
-	char **str = ft_split(0, '_');
-	printf("%s\n", str[0]);
+	//lst1 = newl;
+	//ft_lstclear(&lst1, del);
+	//printf("%p\n", lst1);
+	t_list *lst4 = ft_lstmap(newl, lst_toupper, del);
+	ft_lstiter(lst4, print_lcontent);
 	return (0);
 }

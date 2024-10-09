@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:36:58 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/09 13:56:58 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/09 16:35:32 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ char	**ft_split(char const *s, char c)
 		strs = (char **)malloc(sizeof(char *));
 		strs[0] = 0;
 		return (strs);
-	}	
+	}
 	strs = (char **)malloc(sizeof(char *) * (count_str(s, c) + 1));
 	if (!strs)
 		return (0);
