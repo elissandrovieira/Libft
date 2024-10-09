@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:36:58 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/04 17:02:34 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/08 18:28:47 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	get_str(char **strs, char *s, char c)
 	i = 0;
 	while (*s)
 	{
-		if (s == c && *(s + 1) != c)
+		if (*s == c && *(s + 1) != c)
 		{
 			start = (char *)(s + 1);
 			len = 0;

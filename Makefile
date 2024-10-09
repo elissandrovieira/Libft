@@ -34,10 +34,12 @@ SRC=ft_isalpha.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
 SRC_BONUS=ft_lstnew.c \
-	  ft_lstadd_front.c \
-	  ft_lstsize.c \
-	  ft_lstlast.c \
-	  ft_lstadd_back.c
+	ft_lstadd_front.c \
+	ft_lstsize.c \
+	ft_lstlast.c \
+	ft_lstadd_back.c \
+	ft_lstdelone.c \
+	ft_lstclear.c
 OBJS=$(SRC:.c=.o)
 OBJS_BONUS=$(SRC_BONUS:.c=.o)
 CC=cc
@@ -54,12 +56,15 @@ $(NAME): $(OBJS)
 clean:
 	rm -rf $(OBJS) $(OBJS_BONUS)
 
+bclean:
+	rm -rf $(OBJS_BONUS)
+
 fclean: clean
 	rm -rf $(NAME)
 
 re: fclean $(NAME)
 
-bonus: $(OBJS_BONUS) $(OBJS)
+bonus: bclean $(OBJS_BONUS) $(OBJS)
 	ar rc $(NAME) $(OBJS) $(OBJS_BONUS)
 
 run:

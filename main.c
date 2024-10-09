@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
+/*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:08:55 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/06 14:58:54 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/08 21:56:45 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,24 @@
 #include <string.h>
 #include <bsd/string.h>
 #include <fcntl.h>
+#include <stdlib.h>
 #include "libft.h"
 
 void	test(unsigned int i, char *c)
 {
 	if(i == 0 && *c >= 97 && *c <= 122)
 		*c -= 32;
-	
+
 	if(*c == ' ')
 		*c = '_';
 	if(*c == '.')
 		*c = '!';
 
+}
+
+void del(void * content)
+{
+	free(content);
 }
 
 int     main(void)
@@ -36,7 +42,7 @@ int     main(void)
 	char	buff1[10] = "Hello ";
 	char	str[] = "may the force be with you.";
 	char	**split = ft_split(str, 'e');
-	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_APPEND, 0644); 
+	int	fd = open("output.txt", O_WRONLY | O_CREAT | O_APPEND, 0644);
 	int	i = 0;
 
         ft_memmove(buffer + 2, buffer, 5);
@@ -69,18 +75,26 @@ int     main(void)
 	printf("Original = %s\n", str);
 	ft_striteri(str, test);
 	printf("Modificada = %s\n", str);
-	
+
 	while (str[i] != 0)
 	{
 		ft_putchar_fd(str[i], fd);
-		i++;		
+		i++;
 	}
 	ft_putnbr_fd(5524482, fd);
 	close(fd);
 	write(1, "\n", 1);
 	*/
 
-	char	*str = "May the force be with you!";
+	char	*str = malloc(sizeof(char) * 27);
+	char s[] = "May the force be with you!";
+	int i = 0;
+	while (s[i] != 0)
+	{
+		str[i] = s[i];
+		i++;
+	}
+
 	char	*strnew = "I am your father.";
 	t_list	*strl = ft_lstnew(str);
 	printf("---------- ft_lstnew.c ---------\n");
@@ -105,5 +119,43 @@ int     main(void)
 		printf("%s\n", (char *)lst->content);
 		lst = lst->next;
 	}
+	printf("\n----------------- ft_lstdelone.c -----------------\n");
+	t_list	*node = strl->next->next;
+	ft_lstdelone(strl->next, del);
+	strl->next = node;
+	t_list	*lst1 = strl;
+	while (lst1 != 0)
+	{
+		printf("%s\n", (char *)lst1->content);
+		lst1 = lst1->next;
+	}
+	printf("\n----------------- ft_lstdelone.c -----------------\n");
+	printf("BEFORE\n");
+	t_list	*newl = ft_lstnew(ft_strdup("May"));
+	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("the")));
+	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("force")));
+	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("be")));
+	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("with")));
+	ft_lstadd_back(&newl, ft_lstnew(ft_strdup("you.")));
+	lst1 = newl;
+	while (lst1 != 0)
+	{
+		printf("%s\n", (char *)lst1->content);
+		lst1 = lst1->next;
+	}
+	lst1 = newl;
+	char *a = "be";
+	while (ft_strncmp(lst1->content, a, 2) == 0)
+	{
+		lst1 = lst1->next;
+	}
+	ft_lstclear(lst1, del);
+	lst1 = newl;
+	while (lst1 != 0)
+	{
+		printf("%s\n", (char *)lst1->content);
+		lst1 = lst1->next;
+	}
+
 	return (0);
 }
