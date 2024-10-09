@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/08 20:24:58 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/09 10:43:55 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/09 13:38:01 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,4 +27,5 @@ void ft_lstclear(t_list **lst, void (*del)(void *))
 		free(node);
 		node = to_free;
 	}
+	*lst = 0;
 }

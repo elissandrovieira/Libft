@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:08:55 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/08 21:56:45 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/09 13:46:27 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ int     main(void)
 	ft_putnbr_fd(5524482, fd);
 	close(fd);
 	write(1, "\n", 1);
-	*/
+	
 
 	char	*str = malloc(sizeof(char) * 27);
 	char s[] = "May the force be with you!";
@@ -156,6 +156,8 @@ int     main(void)
 		printf("%s\n", (char *)lst1->content);
 		lst1 = lst1->next;
 	}
-
+*/
+	char **str = ft_split(0, '_');
+	printf("%s\n", str[0]);
 	return (0);
 }
