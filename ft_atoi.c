@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eteofilo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 14:21:05 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/27 14:53:01 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/10 18:59:27 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ int	ft_atoi(const char *nptr)
 	int	n;
 	int	signal;
 
+	if (!nptr)
+		return (0);
 	i = 0;
 	n = 0;
 	signal = 1;

@@ -52,7 +52,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	ar rc $@ $(OBJS)
 
-%.o: %.c
+.c.o:
 	$(CC) $(CC_FLAGS) -c $< -o $@
 
 clean:
