@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eteofilo <eteofilo@student.42.rio>         +#+  +:+       +#+        */
+/*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 15:22:43 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/26 17:52:33 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:27:06 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	if (n == 0)
 		return (0);
 	i = 0;
-	while (i < n - 1 && b1[i] == b2[i])
+	while (i < (n - 1) && b1[i] == b2[i])
 		i++;
 	return (b1[i] - b2[i]);
 }

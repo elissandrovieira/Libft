@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/06 14:36:40 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/10 14:36:38 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:36:43 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*node;
 
-	if (!lst || !new)
+	if (!lst)
 		return ;
 	if (!*lst)
 	{
@@ -24,7 +24,7 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		return ;
 	}
 	node = *lst;
-	while (node->next != 0)
+	while (node->next != NULL)
 		node = node->next;
 	node->next = new;
 }

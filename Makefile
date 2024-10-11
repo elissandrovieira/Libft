@@ -33,15 +33,15 @@ SRC=ft_isalpha.c \
 	ft_putstr_fd.c \
 	ft_putendl_fd.c \
 	ft_putnbr_fd.c
-SRC_BONUS=ft_lstnew.c \
-	ft_lstadd_front.c \
-	ft_lstsize.c \
-	ft_lstlast.c \
-	ft_lstadd_back.c \
-	ft_lstdelone.c \
-	ft_lstclear.c \
-	ft_lstiter.c \
-	ft_lstmap.c
+SRC_BONUS=ft_lstnew_bonus.c \
+	ft_lstadd_front_bonus.c \
+	ft_lstsize_bonus.c \
+	ft_lstlast_bonus.c \
+	ft_lstadd_back_bonus.c \
+	ft_lstdelone_bonus.c \
+	ft_lstclear_bonus.c \
+	ft_lstiter_bonus.c \
+	ft_lstmap_bonus.c
 OBJS=$(SRC:.c=.o)
 OBJS_BONUS=$(SRC_BONUS:.c=.o)
 CC=cc
@@ -69,8 +69,223 @@ bonus: $(OBJS_BONUS) $(OBJS)
 run:
 	clear
 	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
-	./a.out
+	./a.out 0
 
-norm:
+lennorm:
 	clear
 	norminette -R CheckForbiddenSourceHeader $(SRC) $(SRC_BONUS)
+
+isalpha:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 1
+
+isdigit:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 2
+
+isalnum:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 3
+
+isascii:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 4
+
+isprint:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 5
+
+strlen:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 6
+
+memset:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 7
+
+bzero:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 8
+
+memcpy:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 9
+
+memmove:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 10
+
+strlcpy:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 11
+
+strlcat:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 12
+
+toupper:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 13
+
+tolower:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 14
+
+strchr:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 15
+
+strrchr:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 16
+
+strncmp:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 17
+
+memchr:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 18
+
+memcmp:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 19
+
+strnstr:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 20
+
+atoi:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 21
+
+calloc:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 22
+
+strdup:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 23
+
+substr:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 24
+
+strjoin:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 25
+
+split:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 26
+
+strtrim:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 27
+
+itoa:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 28
+
+strmapi:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 29
+
+striteri:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 30
+
+putchar_fd:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 31
+
+putstr_fd:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 32
+
+putendl_fd:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 33
+
+putnbr_fd:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 34
+
+lstnew:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 35
+
+lstadd_front:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 36
+
+lstsize:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 37
+
+lstlast:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 38
+
+lstadd_back:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 39
+
+lstdelone:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 40
+
+lstclear:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 41
+
+lstiter:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 42
+
+lstmap:
+	clear
+	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
+	./a.out 43

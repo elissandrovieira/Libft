@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:36:58 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/09 16:35:32 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/11 19:15:39 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,20 @@ static int	count_str(char const *s, char c)
 	return (count);
 }
 
-void	get_str(char **strs, char *s, char c)
+static void free_str(char **strs)
+{
+	int		i;
+
+	i = 0;
+	while (strs[i] != 0)
+	{
+		free(strs[i]);
+		i++;
+	}
+	free(strs);
+}
+
+static void	get_str(char **strs, char *s, char c)
 {
 	char	*start;
 	int		len;
@@ -47,6 +60,11 @@ void	get_str(char **strs, char *s, char c)
 		if (*s != c && (*(s + 1) == c || *(s + 1) == 0))
 		{
 			strs[i++] = ft_substr(start, 0, len);
+			if (strs[i] == 0)
+			{
+				free_str(strs);
+				return ;
+			}
 			start = (char *)(s + 1);
 			len = 0;
 		}
@@ -55,6 +73,7 @@ void	get_str(char **strs, char *s, char c)
 	}
 	strs[i] = 0;
 }
+
 
 char	**ft_split(char const *s, char c)
 {

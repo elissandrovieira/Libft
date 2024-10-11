@@ -6,13 +6,13 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 18:11:21 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/04 11:26:55 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/11 13:26:46 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	get_len(int n)
+static int	get_len(int n)
 {
 	int	len;
 

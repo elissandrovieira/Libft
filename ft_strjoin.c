@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eteofilo <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 17:19:16 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/09/27 17:36:33 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/11 17:50:32 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		j;
 	char	*str;
 
-	if (!s1 || !s2)
-		return (0);
 	size = ft_strlen(s1) + ft_strlen(s2);
 	str = (char *)malloc((size + 1) * sizeof(char));
 	if (!str)
