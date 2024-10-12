@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/24 23:08:55 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/11 19:35:48 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/12 13:28:42 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <malloc.h>
 #include "libft.h"
 
 //AUX
@@ -35,6 +36,7 @@ void del(void * content)
 	char	*str = (char *)content;
 	if (*str == 32)
 	free(content);
+	printf("conteúdo deletado\n");
 }
 
 void print_lcontent(void *c)
@@ -60,17 +62,13 @@ char mapi_captalize(unsigned int i, char c)
 {
 	if (i == 0)
 		ft_toupper(c);
-	if (c == ' ')
+	else if (c == ' ')
 		c = '_';
 	return (c);
 }
 
-void iteri_captalize(unsigned int i, char *c)
-{
-	if (i == 0)
-		ft_toupper(*c);
-	if (*c == ' ')
-		*c = '_';
+void print_char(unsigned int index, char *c) {
+    printf("Index: %u, Char: %c\n", index, *c);
 }
 
 //P1
@@ -165,17 +163,19 @@ void test_strlen()
 	printf("\n---------- ft_strlen.c ---------\n");
 	char *s = "May the force be with you.";
 	printf("string: %s\n", s);
-	printf("len: %ld\n", ft_strlen(s));
+	printf("strlen: %ld\n", strlen(s));
+	printf("ft_strlen: %ld\n", ft_strlen(s));
 }
 
 void test_memset()
 {
 	printf("\n---------- ft_memset.c ---------\n");
-	int i = 10;
-	char str1[i];
-	char str2[i];
-	memset(str1, 'A', i);
-	ft_memset(str2, 'A', i);
+	char str1[27] = "May the force be with you.";
+	char str2[27] = "May the force be with you.";
+
+	printf("String before: %s\n", str1);
+	memset(str1, 'B', 3);
+	ft_memset(str2, 'B', 3);
 	printf("memset: %s\n", str1);
 	printf("ft_memset: %s\n", str2);
 }
@@ -197,7 +197,7 @@ void test_bzero()
 void test_memcpy()
 {
 	printf("\n---------- ft_memcpy.c ---------\n");
-	int	i = 26;
+	int	i = 27;
 	char s1[i];
 	char s2[i];
 
@@ -421,6 +421,7 @@ void test_split()
 
 void test_strtrim()
 {
+	printf("\n---------- ft_strtrim.c ---------\n");
 	char *s = " ee Hello, World!  e";
     char *set = "eeeoo !";
     char *result;
@@ -463,7 +464,7 @@ void test_striteri()
 	printf("\n---------- ft_striteri.c ---------\n");
 	char *s = "may the force be with you.";
 	printf("string: %s\n", s);
-	ft_striteri(s, iteri_captalize);
+	ft_striteri(s, print_char);
 	printf("ft_striteri: %s\n", s);
 }
 
@@ -489,15 +490,18 @@ void test_putnbr_fd()
 {
 	printf("\n---------- ft_putnbr_fd.c ---------\n");
 	int n1 = -2147483648;
-	printf("Integer: %d\n", n1);
+	printf("Integer: \n%d\n\n", n1);
+	printf("ft_putnbr_fd: \n");
 	ft_putnbr_fd(n1, 1);
-	printf("------------------------------\n");
+	printf("\n------------------------------\n");
 	int n2 = 2147483647;
-	printf("Integer: %d\n", n2);
+	printf("Integer: \n%d\n\n", n2);
+	printf("ft_putnbr_fd:\n");
 	ft_putnbr_fd(n2, 1);
-	printf("------------------------------\n");
+	printf("\n------------------------------\n");
 	int n3 = 0;
-	printf("Integer: %d\n", n3);
+	printf("Integer: \n%d\n\n", n3);
+	printf("ft_putnbr_fd:\n");
 	ft_putnbr_fd(n3, 1);
 }
 
@@ -599,24 +603,9 @@ void test_lstadd_back()
 void test_lstdelone()
 {
 	printf("\n----------- ft_lstdelone.c -----------------\n");
-	printf("-------------- BEFORE ----------------\n");
 	char	*str = "may the force be with you.";
 	t_list	*strl = ft_lstnew(str);
-	char	*strback = "Help me, obi-wan kenobi.";
-	t_list	*strlback = ft_lstnew(strback);
-	ft_lstadd_back(&strl, strlback);
-	while (strl != 0)
-	{
-		printf("%s\n", (char *)strl->content);
-		strl = strl->next;
-	}
-	printf("-------------- AFTER ----------------\n");
 	ft_lstdelone(strl, del);
-	while (strl != 0)
-	{
-		printf("%s\n", (char *)strl->content);
-		strl = strl->next;
-	}
 }
 
 void test_lstclear()
@@ -680,7 +669,7 @@ void test_lstmap()
 
 
 void test_all(void) {
-    for (int i = 1; i <= 42; i++) {
+    for (int i = 1; i <= 43; i++) {
         if (i == 1) test_isalpha();
         else if (i == 2) test_isdigit();
         else if (i == 3) test_isalnum();

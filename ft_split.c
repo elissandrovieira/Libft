@@ -6,7 +6,7 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/03 12:36:58 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/11 19:15:39 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/12 12:21:51 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static int	count_str(char const *s, char c)
 	return (count);
 }
 
-static void free_str(char **strs)
+static int	free_str(char **strs)
 {
 	int		i;
 
@@ -39,9 +39,10 @@ static void free_str(char **strs)
 		i++;
 	}
 	free(strs);
+	return (0);
 }
 
-static void	get_str(char **strs, char *s, char c)
+static int	get_str(char **strs, char *s, char c)
 {
 	char	*start;
 	int		len;
@@ -59,25 +60,21 @@ static void	get_str(char **strs, char *s, char c)
 		}
 		if (*s != c && (*(s + 1) == c || *(s + 1) == 0))
 		{
-			strs[i++] = ft_substr(start, 0, len);
-			if (strs[i] == 0)
-			{
-				free_str(strs);
-				return ;
-			}
-			start = (char *)(s + 1);
-			len = 0;
+			strs[i] = ft_substr(start, 0, len);
+			if (strs[i++] == 0)
+				return (free_str(strs));
 		}
 		len++;
 		s++;
 	}
 	strs[i] = 0;
+	return (1);
 }
-
 
 char	**ft_split(char const *s, char c)
 {
 	char	**strs;
+	int		is_ok;
 
 	if (!s)
 	{
@@ -88,6 +85,8 @@ char	**ft_split(char const *s, char c)
 	strs = (char **)malloc(sizeof(char *) * (count_str(s, c) + 1));
 	if (!strs)
 		return (0);
-	get_str(strs, (char *)s, c);
+	is_ok = get_str(strs, (char *)s, c);
+	if (is_ok == 0)
+		free(strs);
 	return (strs);
 }

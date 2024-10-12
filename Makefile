@@ -71,7 +71,7 @@ run:
 	$(CC) $(CC_FLAGS) main.c -L. -l:libft.a -lbsd
 	./a.out 0
 
-lennorm:
+norm:
 	clear
 	norminette -R CheckForbiddenSourceHeader $(SRC) $(SRC_BONUS)
 

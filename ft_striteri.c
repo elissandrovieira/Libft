@@ -6,11 +6,9 @@
 /*   By: eteofilo <eteofilo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/04 11:34:28 by eteofilo          #+#    #+#             */
-/*   Updated: 2024/10/11 18:31:21 by eteofilo         ###   ########.fr       */
+/*   Updated: 2024/10/12 12:39:00 by eteofilo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
